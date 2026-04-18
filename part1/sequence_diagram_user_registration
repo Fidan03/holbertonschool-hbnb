@@ -1,0 +1,16 @@
+sequenceDiagram
+
+participant User
+participant API
+participant Facade
+participant UserModel
+participant DB
+
+User->>API: POST /users (register data)
+API->>Facade: create_user(data)
+Facade->>UserModel: validate & create user
+UserModel->>DB: INSERT user
+DB-->>UserModel: success
+UserModel-->>Facade: user created
+Facade-->>API: return user data
+API-->>User: 201 Created

@@ -1,0 +1,15 @@
+sequenceDiagram
+participant User
+participant API
+participant Facade
+participant PlaceModel
+participant DB
+
+User->>API: POST /places (place data)
+API->>Facade: create_place(data)
+Facade->>PlaceModel: validate & create place
+PlaceModel->>DB: INSERT place
+DB-->>PlaceModel: success
+PlaceModel-->>Facade: place created
+Facade-->>API: return place
+API-->>User: 201 Created

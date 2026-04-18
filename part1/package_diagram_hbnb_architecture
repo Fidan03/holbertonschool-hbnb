@@ -1,0 +1,48 @@
+classDiagram
+
+%% ======================
+%% Presentation Layer
+%% ======================
+class PresentationLayer {
+    <<Layer>>
+    +API Endpoints
+    +Services
+}
+
+%% ======================
+%% Facade
+%% ======================
+class HBnBFacade {
+    <<Facade>>
+    +create_user()
+    +create_place()
+    +create_review()
+    +get_places()
+}
+
+%% ======================
+%% Business Logic Layer
+%% ======================
+class BusinessLogicLayer {
+    <<Layer>>
+    +User
+    +Place
+    +Review
+    +Amenity
+}
+
+%% ======================
+%% Persistence Layer
+%% ======================
+class PersistenceLayer {
+    <<Layer>>
+    +Repositories
+    +Database Access
+}
+
+%% ======================
+%% Relationships
+%% ======================
+PresentationLayer --> HBnBFacade : Uses
+HBnBFacade --> BusinessLogicLayer : Calls
+BusinessLogicLayer --> PersistenceLayer : CRUD Operations

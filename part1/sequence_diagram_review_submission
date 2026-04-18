@@ -1,0 +1,15 @@
+sequenceDiagram
+participant User
+participant API
+participant Facade
+participant ReviewModel
+participant DB
+
+User->>API: POST /reviews (review data)
+API->>Facade: create_review(data)
+Facade->>ReviewModel: validate review (user + place)
+ReviewModel->>DB: INSERT review
+DB-->>ReviewModel: success
+ReviewModel-->>Facade: review created
+Facade-->>API: return review
+API-->>User: 201 Created

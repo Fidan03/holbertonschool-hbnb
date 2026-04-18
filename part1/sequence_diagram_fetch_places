@@ -1,0 +1,15 @@
+sequenceDiagram
+participant User
+participant API
+participant Facade
+participant PlaceModel
+participant DB
+
+User->>API: GET /places
+API->>Facade: get_places(filters)
+Facade->>PlaceModel: fetch places
+PlaceModel->>DB: SELECT * FROM places
+DB-->>PlaceModel: places data
+PlaceModel-->>Facade: list of places
+Facade-->>API: return places
+API-->>User: 200 OK (places list)

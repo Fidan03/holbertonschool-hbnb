@@ -1,0 +1,77 @@
+classDiagram
+%% ======================
+%% Base Class (for shared attributes)
+%% ======================
+class BaseModel {
+    +UUID id
+    +datetime created_at
+    +datetime updated_at
+    +save()
+    +delete()
+}
+
+%% ======================
+%% User
+%% ======================
+class User {
+    +string first_name
+    +string last_name
+    +string email
+    +string password
+    +bool is_admin
+    +register()
+    +update_profile()
+    +delete()
+}
+
+%% ======================
+%% Place
+%% ======================
+class Place {
+    +string title
+    +string description
+    +float price
+    +float latitude
+    +float longitude
+    +create()
+    +update()
+    +delete()
+}
+
+%% ======================
+%% Review
+%% ======================
+class Review {
+    +int rating
+    +string comment
+    +create()
+    +update()
+    +delete()
+}
+
+%% ======================
+%% Amenity
+%% ======================
+class Amenity {
+    +string name
+    +string description
+    +create()
+    +update()
+    +delete()
+}
+
+%% ======================
+%% Inheritance
+%% ======================
+User --|> BaseModel
+Place --|> BaseModel
+Review --|> BaseModel
+Amenity --|> BaseModel
+
+%% ======================
+%% Relationships
+%% ======================
+User "1" --> "0..*" Place : owns
+Place "1" --> "0..*" Review : has
+User "1" --> "0..*" Review : writes
+Place "0..*" --> "0..*" Amenity : includes
