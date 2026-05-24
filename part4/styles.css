@@ -1,0 +1,386 @@
+/* ===== General Styles ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    text-decoration: none;
+    color: #3498db;
+}
+
+a:hover {
+    color: #2980b9;
+}
+
+/* ===== Header ===== */
+header {
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    height: 40px;
+}
+
+nav a {
+    color: #ecf0f1;
+    margin-left: 20px;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #3498db;
+}
+
+.login-button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.login-button:hover {
+    background-color: #2980b9;
+    color: #fff;
+}
+
+/* ===== Footer ===== */
+footer {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    text-align: center;
+    padding: 15px;
+    margin-top: auto;
+}
+
+/* ===== Main Content ===== */
+main {
+    flex: 1;
+    padding: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* ===== Login Page ===== */
+.login-container {
+    max-width: 400px;
+    margin: 60px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #2c3e50;
+}
+
+.login-container form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #555;
+}
+
+.login-container form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.login-container form input:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+.login-container form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-container form button:hover {
+    background-color: #2980b9;
+}
+
+#login-error {
+    color: #e74c3c;
+    text-align: center;
+    margin-top: 10px;
+    display: none;
+}
+
+/* ===== Places List (Index) ===== */
+.filter-section {
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.filter-section label {
+    font-weight: 600;
+    color: #555;
+}
+
+.filter-section select {
+    padding: 8px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#places-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.place-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 20px 0;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.place-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.place-card h3 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.place-card .price {
+    font-size: 18px;
+    font-weight: 700;
+    color: #27ae60;
+    margin-bottom: 10px;
+}
+
+.place-card p {
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.details-button {
+    display: inline-block;
+    background-color: #3498db;
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.details-button:hover {
+    background-color: #2980b9;
+    color: #fff;
+}
+
+/* ===== Place Details ===== */
+.place-details {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.place-details h1 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.place-info {
+    margin-bottom: 25px;
+}
+
+.place-info p {
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.place-info .label {
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+.amenities-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.amenities-list li {
+    background-color: #ecf0f1;
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 13px;
+    color: #555;
+}
+
+/* ===== Reviews ===== */
+.reviews-section {
+    margin-top: 30px;
+}
+
+.reviews-section h2 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.review-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 20px 0;
+}
+
+.review-card .reviewer {
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.review-card .rating {
+    color: #f39c12;
+    margin-bottom: 8px;
+}
+
+.review-card .comment {
+    color: #555;
+}
+
+/* ===== Add Review Form ===== */
+.add-review {
+    margin-top: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.add-review h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.add-review .form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #555;
+}
+
+.add-review .form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    min-height: 120px;
+    resize: vertical;
+    margin-bottom: 15px;
+}
+
+.add-review .form select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.add-review .form textarea:focus,
+.add-review .form select:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+.add-review .form button {
+    padding: 12px 25px;
+    background-color: #27ae60;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-review .form button:hover {
+    background-color: #219a52;
+}
+
+#review-message {
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+.success {
+    color: #27ae60;
+}
+
+.error {
+    color: #e74c3c;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #places-list {
+        grid-template-columns: 1fr;
+    }
+
+    .filter-section {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
